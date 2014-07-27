@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PandaTracker</title>
+
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/ionic.bundle.js"></script>
+    <script src="js/ionic.js"></script>
+
+    <link rel="stylesheet" href="css/ionic.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body ng-app="ionic">
+
+	<div class="tabs" id="tabs">
+	  <span class="tab-item" id="sButton">Scrypt</span>
+	  <span class="tab-item" id="xButton">X11</span>
+	  <span class="tab-item" id="pButton">Payouts</span>
+	  <span class="tab-item" id="wButton">Wallet</span>
+	</div>
+
+	<div class="list card" id="sInfo">
+		<div class="item item-divider cardHead" id="cardHead2">Scrypt<div style="float:right;padding-right:10px;"><i class="icon ion-refresh"></i></div></div>
+		<div class="item">Hashrate: <span id="sHash"></span></div>
+		<div class="item">Doge/MHs/Day: <span id="sDPD"></span></div>
+		<div class="item">Panda/MHs/Day: <span id="sPPD"></span></div>
+		<div class="item item-divider OPEN" id="cardHead4">Get for Android on Google Play<div style="float:right;padding-right:10px;"><i class="icon ion-android-playstore"></i></div></div>
+	</div>
+
+	<div class="list card" id="xInfo">
+		<div class="item item-divider cardHead" id="cardHead2">X11<div style="float:right;padding-right:10px;"><i class="icon ion-refresh"></i></div></div>
+		<div class="item">Hashrate: <span id="xHash"></span></div>
+		<div class="item">Doge/MHs/Day: <span id="xDPD"></span></div>
+		<div class="item">Panda/MHs/Day: <span id="xPPD"></span></div>
+		<div class="item item-divider OPEN" id="cardHead4">Get for Android on Google Play<div style="float:right;padding-right:10px;"><i class="icon ion-android-playstore"></i></div></div>
+	</div>
+
+	<div class="list card" id="pSInfo">
+		<div class="item item-divider cardHead" id="cardHead4">Scrypt Payouts<div style="float:right;padding-right:10px;"><i class="icon ion-refresh"></i></div></div>
+		<div class="item pay" id="sPay0">1</div>
+		<div class="item pay" id="sPay1">2</div>
+		<div class="item pay" id="sPay2">3</div>
+		<div class="item pay" id="sPay3">4</div>
+		<div class="item pay" id="sPay4">5</div>
+		<div class="item pay" id="sPay5">6</div>
+		<div class="item item-divider cardHead3" id="cardHead4"><div class="tabs" id="tabs2"><span class="tab-item sPButton" id="pBU">Scrypt</span><span class="tab-item xPButton" id="pBU">X11</span></div></div>
+		<div class="item item-divider OPEN" id="cardHead4">Get for Android on Google Play<div style="float:right;padding-right:10px;"><i class="icon ion-android-playstore"></i></div></div>
+	</div>
+
+	<div class="list card" id="pXInfo">
+		<div class="item item-divider cardHead" id="cardHead4">X11 Payouts<div style="float:right;padding-right:10px;"><i class="icon ion-refresh"></i></div></div>
+		<div class="item pay" id="xPay0">1</div>
+		<div class="item pay" id="xPay1">2</div>
+		<div class="item pay" id="xPay2">3</div>
+		<div class="item pay" id="xPay3">4</div>
+		<div class="item pay" id="xPay4">5</div>
+		<div class="item pay" id="xPay5">6</div>
+		<div class="item item-divider cardHead3" id="cardHead4"><div class="tabs" id="tabs2"><span class="tab-item sPButton" id="pBU">Scrypt</span><span class="tab-item xPButton" id="pBU">X11</span></div></div>
+		<div class="item item-divider OPEN" id="cardHead4">Get for Android on Google Play<div style="float:right;padding-right:10px;"><i class="icon ion-android-playstore"></i></div></div>
+	</div>
+
+	<div class="list card" id="wInfo">
+		<div class="item item-divider cardHead" id="cardHead2">Wallet<div style="float:right;padding-right:10px;"><i class="icon ion-refresh"></i></div></div>
+		<div class="item" id="exchange">Doge/BTC: <span id="dogeBTC"></span></div>
+		<div class="item" id="thous">1000 Doge/USD: <span id="dogeUSD"></span></div>
+		<label class="item item-input"><input type="text" placeholder="Pandapool Address" id="pandaForm"></label>
+		<div class="item" id="amount">Balance:</div>
+		<div class="item">USD Equiv: <span id="usdAm"></span></div>
+		<div class="item item-divider OPEN" id="cardHead4">Get for Android on Google Play<div style="float:right;padding-right:10px;"><i class="icon ion-android-playstore"></i></div></div>
+	</div>
+	
+
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
+<!--
+<div data-role="stuff" data-theme="d" id="stuff">
+
+		<div id="headerText">
+		<span style="font-weight:900;">Panda</span><span style="font-weight:300;">Tracker</span>
+			<div style="background-color: rgb(34, 45, 58);">
+				<div style="text-shadow: rgb(0, 164, 207) 1px 1px, rgb(0, 164, 207) 2px 2px, rgb(0, 164, 207) 3px 3px, rgb(0, 164, 207) 4px 4px, rgb(0, 164, 207) 5px 5px, rgb(0, 164, 207) 6px 6px, rgb(0, 164, 207) 7px 7px, rgb(0, 164, 207) 8px 8px, rgb(0, 164, 207) 9px 9px, rgb(0, 164, 207) 10px 10px, rgb(0, 166, 209) 11px 11px, rgb(0, 168, 212) 12px 12px, rgb(0, 170, 215) 13px 13px, rgb(0, 173, 218) 14px 14px, rgb(0, 175, 221) 15px 15px, rgb(0, 177, 223) 16px 16px, rgb(0, 180, 226) 17px 17px, rgb(0, 182, 229) 18px 18px, rgb(0, 184, 232) 19px 19px, rgb(0, 186, 235) 20px 20px, rgb(0, 189, 238) 21px 21px, rgb(0, 191, 240) 22px 22px, rgb(0, 193, 243) 23px 23px, rgb(0, 196, 246) 24px 24px, rgb(0, 198, 249) 25px 25px, rgb(0, 200, 252) 26px 26px, rgb(0, 203, 255) 27px 27px; background-color: rgb(0, 203, 255);"><span id="header">PandaTracker</span></div>
+			</div>
+	</div>
+
+		<div id="content">
+
+			<div style="margin-top: 20px;text-align:center;">
+				Pandapool address: 
+			</div>
+
+			<div style="text-align:center;"><input type="text" name="pandaAd" id="pandaForm"></input></div>
+
+			<div><span class="topButton" id="sButton">Scrypt</span><span class="topButton" id="xButton">x11</span><span class="topButton" id="wButton">Wallet</span></div>
+
+			<div id="infoContent">
+				<div class="info" id="sInfo">
+					<div>Scrypt Hashrate: <span id="sHash"></span></div>
+					<div class="room">Doge/MHs/Day: <span id="sDPD"></span></div>
+					<div>Panda/MHs/Day: <span id="sPPD"></span></div>
+					<div class="room">Payouts<span id="sPayouts"></span></div>
+				</div>
+				<div class="info" id="xInfo">
+					<div>X11 Hashrate: <span id="xHash"></span></div>
+					<div class="room">Doge/MHs/Day:<span id="xDPD"></span></div>
+					<div>Panda/MHs/Day:<span id="xPPD"></span></div>
+					<div class="room">Payouts:<span id="xPayouts"></span></div>
+				</div>
+				<div class="info" id="wInfo">
+					<div id="exchange">DOGE/BTC Rate: <span id="dogeBTC"></span></div>
+					<div id="thous">1000 DOGE/USD Rate: <span id="dogeUSD"></span></div>
+					<div id="amount">DOGE Amount:</div>
+					<div>USD Equiv: <span id="usdAm"></span></div>
+				</div>
+
+			</div>			
+
+			<div id="updateButton">Update</div>
+			
+		</div>
+	</div>
+
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+-->
